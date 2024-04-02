@@ -20,7 +20,7 @@ const doc = {
             "bearerAuth": []
         }
     ],
-    host: 'https://swagger-ui-backend-nyfr.vercel.app'
+    host: 'swagger-ui-backend-nyfr.vercel.app'
 };
 
 const outputFile = './swagger-output.json';
