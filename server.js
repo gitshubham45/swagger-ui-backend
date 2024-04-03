@@ -9,7 +9,6 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 const swaggerAutogen = require('swagger-autogen')();
-const fs = require('fs');
 
 
 
@@ -23,9 +22,9 @@ app.use(cors());
 const router = express.Router();
 
 // Serve static files from the 'public' directory
-app.use('/public', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const options = { customCssUrl: '/public/swagger-ui.css',};
+const options = { customCssUrl: '/swagger-ui.css',};
 
 app.use('/api-docs', (req, res, next)=>{
   swaggerDocument.host = req.get('host');
