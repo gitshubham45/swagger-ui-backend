@@ -9,6 +9,7 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 const swaggerAutogen = require('swagger-autogen')();
+const fs = require('fs');
 
 
 
@@ -19,7 +20,13 @@ dotenv.config();
 connectDB();
 
 app.use(cors());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,options));
 
 
 
