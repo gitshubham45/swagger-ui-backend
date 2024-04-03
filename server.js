@@ -20,14 +20,18 @@ dotenv.config();
 connectDB();
 
 app.use(cors());
+const router = express.Router();
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static('public'));
 
-const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
+const options = { customCssUrl: '/public/swagger-ui.css',};
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,options));
-
+app.use('/api-docs', (req, res, next)=>{
+  swaggerDocument.host = req.get('host');
+  req.swaggerDoc = swaggerDocument;
+  next();
+}, swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
 
 app.use(express.json());
