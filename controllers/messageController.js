@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const getMessage = async (req,res) => {
     try {
-        // Make a GET request to the 'https://api.quotable.io/quotes/random' endpoint using axios.
         const {data }= await axios.get('https://api.quotable.io/quotes/random');
         const message = data[0].content;
         console.log(message);
