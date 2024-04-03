@@ -26,6 +26,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 
 
+
 app.get('/', async (req, res) => {
     res.send("Hello, world!");
 })
