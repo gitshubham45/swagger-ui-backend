@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "My API",
-    "description": "Description",
+    "description": "Put the Bearer token you get when you login  in Authorize section",
     "version": "1.0.0"
   },
   "host": "swagger-ui-backend-nyfr.vercel.app",
