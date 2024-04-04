@@ -3,12 +3,10 @@ const asyncHandler = require('express-async-handler');
 
 const getData =asyncHandler(async (req, res) => {
     try {
-          // Extract limit and category from request body
           const { limit, category } = req.body;
 
         console.log(req.body);
 
-        // Fetch data from the public API
         const response = await axios.get('https://api.publicapis.org/entries');
         const data = response.data;
 
@@ -17,7 +15,7 @@ const getData =asyncHandler(async (req, res) => {
 
         // Validate limit
         const limitParam = parseInt(limit);
-        if (isNaN(limitParam) || limitParam <= 0) {
+        if (isNaN(limitParam) || limitParam <= 0 ) {
             return res.status(400).json({ error: 'Invalid limit parameter' });
         }
 
@@ -26,8 +24,11 @@ const getData =asyncHandler(async (req, res) => {
             filteredData = filteredData.filter(data => data.Category.toLowerCase() === category.toLowerCase());
         }
 
+
         // Slice the data based on the limit parameter
         filteredData = filteredData.slice(0, limitParam);
+
+        if(filteredData.length === 0) return res.status(403).json({message:"Category not found"});
 
         // Send the filtered data as JSON response
         res.json(filteredData);

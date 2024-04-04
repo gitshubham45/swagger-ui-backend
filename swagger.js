@@ -1,5 +1,4 @@
 const swaggerAutogen = require('swagger-autogen');
-// const userRoutes = require('./routes/userRoutes');
 
 const doc = {
     info: {

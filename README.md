@@ -3,10 +3,10 @@
 
 ```bash
 # 1. Clone the Repository
-git clone https://github.com/gitshubham45/restaurant-api-zag.git
+git clone https://github.com/gitshubham45/swagger-ui-backend.git
 
 # 2. Install Dependencies
-cd restaurant-api-zag
+cd swagger-ui-backend
 npm install
 
 # 3. Set Up Environment Variables
@@ -23,10 +23,10 @@ npm install
 # 4. Start the Development Server
 npm start
 
-# 5. Test the endpoints shared through POSTMAN collection
+# 5. Go to Local https://localhost:3000 
 
- i.) After sign-up / login a token will be returned in response
- ii) Put that token in Authorization tab of collection selecting Bearer token option and save it.
- iii) Now try testing other endpoints in the collection
+ i.) After sign-up / login a token will be returned in response 
+ ii) Put that token by using Authorize button provided by swagger-ui and click on authorize , after this you can use protected endpoint /api/secret/ . 
+ iii) Now try testing other endpoints by providing the required data.
 
 

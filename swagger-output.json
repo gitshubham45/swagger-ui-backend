@@ -22,6 +22,7 @@
     "/": {
       "get": {
         "description": "",
+        "summary": "Home",
         "responses": {
           "200": {
             "description": "OK"
@@ -30,8 +31,13 @@
       }
     },
     "/api/user/": {
+      "info": {
+        "title": "Register User",
+        "description": "Description"
+    },
       "post": {
-        "description": "",
+        "description": "Register user",
+        "summary": "Register user",
         "parameters": [
           {
             "name": "body",
@@ -40,13 +46,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Jane Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "any@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "any123"
                 }
               }
             }
@@ -57,14 +63,15 @@
             "description": "Created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "User already exists/Failed to create the user/Please Enter all Fields"
           }
         }
       }
     },
     "/api/user/login": {
       "post": {
-        "description": "",
+        "description": "User Login",
+        "summary": "User Login",
         "parameters": [
           {
             "name": "body",
@@ -73,10 +80,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "example": "any@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "any123"
                 }
               }
             }
@@ -84,10 +91,10 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "logged in successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid email or password"
           }
         }
       }
@@ -95,6 +102,7 @@
     "/api/publicapi/": {
       "post": {
         "description": "",
+        "summary": "Get data from Public API",
         "parameters": [
           {
             "name": "body",
@@ -103,10 +111,10 @@
               "type": "object",
               "properties": {
                 "limit": {
-                  "example": "any"
+                  "example": "number"
                 },
                 "category": {
-                  "example": "any"
+                  "example": "Animals/Books/Business/Calender/Cryptocurrency/Finance/Jobs/Music/News..."
                 }
               }
             }
@@ -117,7 +125,7 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Category not found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -128,6 +136,7 @@
     "/api/secret/": {
       "get": {
         "description": "",
+        "summary": "Get Secret message",
         "parameters": [
           {
             "name": "authorization",

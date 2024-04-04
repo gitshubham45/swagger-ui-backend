@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const getMessage = async (req,res) => {
     try {
+        // Used a public api to generate random messages
         const {data }= await axios.get('https://api.quotable.io/quotes/random');
         const message = data[0].content;
         console.log(message);

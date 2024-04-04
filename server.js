@@ -41,6 +41,7 @@ app.get('/', async (req, res) => {
     res.send("Hello, world!");
 })
 
+
 app.use("/api/user", userRoutes);
 app.use("/api/publicapi", dataRoutes);
 app.use("/api/secret", secretRoutes);
