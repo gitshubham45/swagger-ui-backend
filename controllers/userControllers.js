@@ -25,10 +25,10 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if (user) {
         res.status(201).json({
+            message : "User created successfully",
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
         });
     } else {
         res.status(400).json({ error: "Failed to create the user" });
@@ -43,6 +43,7 @@ const authUser = asyncHandler(async (req, res) => {
 
     if (user && (await user.matchPassword(password))) {
         res.status(201).json({
+            message : "User logged in successfully",
             _id: user._id,
             name: user.name,
             email: user.email,

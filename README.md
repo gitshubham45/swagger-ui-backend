@@ -23,9 +23,10 @@ npm install
 # 4. Start the Development Server
 npm start
 
-# 5. Go to Local https://localhost:3000 
+# 5. Go to Local https://localhost:3000/api-docs 
 
- i.) After sign-up / login a token will be returned in response 
+i.) Create user by sign-up.
+ i.) After sign-up ,login user with same email and password , you will get a token in response.
  ii) Put that token by using Authorize button provided by swagger-ui and click on authorize , after this you can use protected endpoint /api/secret/ . 
  iii) Now try testing other endpoints by providing the required data.
 
